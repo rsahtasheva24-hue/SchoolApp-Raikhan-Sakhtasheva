@@ -8,11 +8,11 @@ public partial class StudentsPage : ContentPage
 
         StudentsList.ItemsSource = new[]
         {
-            "Ilnur",
-            "Nursultan",
-            "Nurdaulet",
-            "Artur",
-            "Max"
+            "Asylai",
+            "Aizhan",
+            "Aidana",
+            "Ali",
+            "Raikhan"
         };
     }
 
