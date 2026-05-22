@@ -12,6 +12,11 @@ public partial class MainPage : ContentPage
     private void OnTapClicked(object sender, EventArgs e)
     {
         _count++;
-        StatusLabel.Text = $"Button tapped {_count} time(s).";
+        StatusLabel.Text = $"Button tapped {_count} times";
+    }
+
+    private async void OnOpenStudentsClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(StudentsPage));
     }
 }
