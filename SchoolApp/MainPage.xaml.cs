@@ -4,15 +4,18 @@ namespace SchoolApp;
 
 public partial class MainPage : ContentPage
 {
+    
     private int _count = 0;
 
     public MainPage()
     {
         InitializeComponent();
 
+        
         BindingContext = new Person();
     }
 
+   
     private void OnTapClicked(object sender, EventArgs e)
     {
         _count++;
