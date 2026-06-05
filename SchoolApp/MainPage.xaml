@@ -23,8 +23,27 @@
                 Clicked="OnTapClicked"
                 HorizontalOptions="Center" />
 
-        <Button Text="Open students list" 
-                Clicked="OnOpenStudentsClicked" 
+        <Label Text="Name card" 
+               FontSize="22" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" />
+
+        <Entry Text="{Binding Name}" 
+               Placeholder="Edit your name" 
+               HorizontalOptions="Center" 
+               WidthRequest="250" />
+
+        <Label Text="{Binding Name}" 
+               FontSize="20" 
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding City}" 
+               FontSize="16" 
+               TextColor="Gray" 
+               HorizontalOptions="Center" />
+
+        <Button Text="Open students list"
+                Clicked="OnOpenStudentsClicked"
                 HorizontalOptions="Center" />
 
     </VerticalStackLayout>
