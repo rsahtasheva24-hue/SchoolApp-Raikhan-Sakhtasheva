@@ -1,3 +1,5 @@
+using SchoolApp.ViewModels;
+
 namespace SchoolApp;
 
 public partial class StudentsPage : ContentPage
@@ -5,23 +7,27 @@ public partial class StudentsPage : ContentPage
     public StudentsPage()
     {
         InitializeComponent();
+        BindingContext = new StudentsViewModel();
+    }
 
-        StudentsList.ItemsSource = new[]
+    private void OnAddStudentClicked(object sender, EventArgs e)
+    {
+        if (BindingContext is StudentsViewModel viewModel)
         {
-            "Asylai",
-            "Aizhan",
-            "Aidana",
-            "Ali",
-            "Raikhan"
-        };
+            if (!string.IsNullOrWhiteSpace(viewModel.NewStudentName))
+            {
+                viewModel.Students.Add(viewModel.NewStudentName);
+                viewModel.NewStudentName = string.Empty;
+            }
+        }
     }
 
     private async void OnStudentSelected(object sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is not string name) return;
-
-        await Shell.Current.GoToAsync($"{nameof(StudentDetailPage)}?name={Uri.EscapeDataString(name)}");
-
-        StudentsList.SelectedItem = null;
+        if (e.CurrentSelection.FirstOrDefault() is string studentName)
+        {
+            ((CollectionView)sender).SelectedItem = null;
+            await Shell.Current.GoToAsync($"{nameof(StudentDetailPage)}?name={studentName}");
+        }
     }
 }
